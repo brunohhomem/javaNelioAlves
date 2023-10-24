@@ -1,0 +1,10 @@
+
+public class Sysout {
+	public static void main(String[] args) {
+		System.out.print("Sem quebra de linha"); // Sem quebra de linha no final
+
+		System.out.println("Com quebra de linha"); // Com quebra de linha no final
+		
+		System.out.printf("%.2f",100.56878924);
+	}
+}

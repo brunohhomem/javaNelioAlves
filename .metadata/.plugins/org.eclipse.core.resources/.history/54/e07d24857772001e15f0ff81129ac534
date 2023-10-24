@@ -1,0 +1,14 @@
+package exercicios;
+
+public class ex_Sysout {
+
+	public static void main(String[] args) {
+		String product1 = "Computer";
+		String product2 = "Monitor";
+		
+		int age = 29;
+		int code = 5732;
+		char gender = "M";
+	}
+
+}
