@@ -1,0 +1,4 @@
+
+public class Sysout {
+	System.out.println("Olá mundo!")
+}
