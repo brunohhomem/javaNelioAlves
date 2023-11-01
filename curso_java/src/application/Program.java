@@ -13,6 +13,7 @@ public class Program {
 
 		Triangle x, y;
 		x = new Triangle();
+		
 		y = new Triangle();
 
 		System.out.println("Please, enter the measures of triangle X: ");
