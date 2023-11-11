@@ -23,8 +23,15 @@ public class BusinessAccount extends Account {
 	public void loan(double amount) {
 		if (amount <= loanLimit) {
 //			deposit(amount); // chamando o metodo da classe account
-			
+
 			balance += amount - 10.0;
 		}
+	}
+	
+	// Sobrescrever o método da classe Account,aumentando o desconto do saque.
+	@Override
+	public void withdraw(double amount) {
+		super.withdraw(amount);
+		balance -= 2.0;
 	}
 }
