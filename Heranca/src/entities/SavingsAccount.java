@@ -1,6 +1,6 @@
 package entities;
 
-public class SavingsAccount extends Account{
+public final class SavingsAccount extends Account{
 	private double interestRate;
 	
 	public SavingsAccount() {
@@ -26,7 +26,7 @@ public class SavingsAccount extends Account{
 	
 	// Sobrescrever o método da classe Account, sem descontar a taxa de saque.
 	@Override
-	public void withdraw(double amount) {
+	public final void withdraw(double amount) {
 		balance -= amount; // Saque sem a taxa
 	}
 	
