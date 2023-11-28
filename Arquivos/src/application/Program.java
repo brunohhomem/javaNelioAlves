@@ -1,23 +1,24 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Program {
 
 	public static void main(String[] args) {
-		String path = "c:\\temp\\in.txt";
+		String[] lines = new String[] { "Good Morning", "Good Afternoon", "Good Night" }; // cria vetor com valores
 
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			String line = br.readLine();
+		String path = "c:\\temp\\out.txt"; // indica o caminho do arquivo a ser criado
 
-			while (line != null) {
-				System.out.println(line);
-				line = br.readLine();
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+			for (String line : lines) {
+				bw.write(line); // Escreve no arquivo
+				bw.newLine(); // quebra de linha
 			}
 		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+
 		}
 	}
 }
