@@ -1,24 +1,38 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Program {
 
 	public static void main(String[] args) {
-		String[] lines = new String[] { "Good Morning", "Good Afternoon", "Good Night" }; // cria vetor com valores
+		Scanner sc = new Scanner(System.in);
 
-		String path = "c:\\temp\\out.txt"; // indica o caminho do arquivo a ser criado
+		System.out.println("Enter a folder path: ");
+		String strPath = sc.nextLine();
 
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-			for (String line : lines) {
-				bw.write(line); // Escreve no arquivo
-				bw.newLine(); // quebra de linha
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		File path = new File(strPath);
 
+		File[] folders = path.listFiles(File::isDirectory); // traz as pastas do caminho especificado
+
+		System.out.println("Folders:");
+
+		for (File folder : folders) {
+			System.out.println(folder);
 		}
+
+		File[] files = path.listFiles(File::isFile); // traz os arquivos do caminho especificado
+		System.out.println();
+		System.out.println("Files: ");
+
+		for (File file : files) {
+			System.out.println(file);
+		}
+
+		System.out.println();
+		boolean success = new File(strPath + "\\subdir").mkdir(); // criando uma subpasta no diretorio
+		System.out.println("Directory created successfully: " + success);
+
+		sc.close();
 	}
 }
